@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "build": "npm install --prefix backend && npm install --prefix expense-tracker && npm run build --prefix expense-tracker",
+    "build": "npm install --prefix backend && npm install --prefix frontend/expense-tracker && npm run build --prefix frontend/expense-tracker",
     "start": "npm run start --prefix backend"
   },
   "keywords": [],
