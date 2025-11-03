@@ -1,5 +1,13 @@
 {
-  "devDependencies": {
-    "tailwindcss": "^4.1.16"
-  }
+  "name": "expensetracker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix server && npm install --prefix zynkup && npm run build --prefix zynkup",
+    "start": "npm run start --prefix server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
