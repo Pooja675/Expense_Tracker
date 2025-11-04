@@ -1,4 +1,3 @@
-require('dotenv').config()
 
 const express = require("express")
 const cors = require("cors")
@@ -8,10 +7,10 @@ const authRoutes = require("./routes/authRoutes")
 const incomeRoutes = require("./routes/incomeRoutes")
 const expenseRoutes = require("./routes/expenseRoutes")
 const dashboardRoutes = require("./routes/dashboardRoutes")
-
-
+const dotenv = require("dotenv")
 
 const app = express()
+dotenv.config()
 
 app.use(express.json())
 
@@ -34,7 +33,13 @@ app.use("/api/v1/income", incomeRoutes)
 app.use("/api/v1/expense", expenseRoutes)
 app.use("/api/v1/dashboard", dashboardRoutes)
 
+if(process.env.NODE_ENV == "production"){
+    app.use(express.static(path.join(__dirname, "frontend/expense-tracker/dist")));
+}
 
+app.get(/.*/, (req, res) => {
+  res.sendFile(path.resolve(__dirname, "frontend/expense-tracker/dist", "index.html"));
+});
 
 
 // Server uploads folder
@@ -43,5 +48,3 @@ app.use("/uploads", express.static(path.join(__dirname,"uploads")))
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`))
-
-
