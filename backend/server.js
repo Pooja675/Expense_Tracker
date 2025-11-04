@@ -34,11 +34,11 @@ app.use("/api/v1/expense", expenseRoutes)
 app.use("/api/v1/dashboard", dashboardRoutes)
 
 if(process.env.NODE_ENV == "production"){
-    app.use(express.static(path.join(__dirname, "frontend/expense-tracker/dist")));
+    app.use(express.static(path.join(__dirname, "../frontend/expense-tracker/dist")));
 }
 
 app.get(/.*/, (req, res) => {
-  res.sendFile(path.resolve(__dirname, "frontend/expense-tracker/dist", "index.html"));
+  res.sendFile(path.resolve(__dirname, "../frontend/expense-tracker/dist", "index.html"));
 });
 
 
