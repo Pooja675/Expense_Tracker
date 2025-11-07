@@ -35,7 +35,7 @@ const Home = () => {
       );
 
       if (response.data) {
-        console.log(response.data)
+        // console.log(response.data)
         setDashboardData(response.data);
       }
     } catch (error) {
