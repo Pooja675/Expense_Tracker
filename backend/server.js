@@ -21,7 +21,10 @@ app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 //Middlewares to handle CORS
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin: [
+      process.env.CLIENT_URL || "http://localhost:5173",
+      "https://expense-tracker-m28a.onrender.com",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "timeout"], // ✅ add timeout & case-correct headers
     credentials: true,
