@@ -1,7 +1,7 @@
 export const BASE_URL =
    import.meta.env.MODE === "development"
     ? import.meta.env.VITE_SERVER_URL || "http://localhost:5555"
-    : "https://expense-tracker-backend.onrender.com";
+    : window.location.origin;
 
 
 // utils/apiPaths.js
