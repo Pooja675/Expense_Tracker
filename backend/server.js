@@ -1,4 +1,3 @@
-
 const express = require("express")
 const cors = require("cors")
 const path = require("path")
@@ -18,23 +17,15 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 
 
-// 🧩 CORS Middleware (Put this BEFORE all routes)
-const corsOptions = {
-  origin: [
-    process.env.CLIENT_URL || "http://localhost:5173",
-    "https://expense-tracker-m28a.onrender.com",
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true,
-};
-
-// ✅ Apply CORS globally
-app.use(cors(corsOptions));
-
-// ✅ Explicitly handle preflight (OPTIONS) requests for all routes
-app.options(/.*/, cors(corsOptions));
-
+//Middlewares to handle CORS
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "timeout"], // ✅ add timeout & case-correct headers
+    credentials: true,
+  })
+);
 
 // Server uploads folder
 app.use("/uploads", express.static(path.join(__dirname,"uploads")))

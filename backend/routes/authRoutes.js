@@ -17,15 +17,6 @@ router.post("/login", loginUser);
 router.get("/getUser", protect, getUserInfo);
 
 router.post("/upload-image", upload.single("image"), (req, res) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://expense-tracker-m28a.onrender.com"
-  );
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Content-Type, Authorization, timeout"
-  );
   if (!req.file) {
     return res.status(400).json({ message: "No file uploaded" });
   }
