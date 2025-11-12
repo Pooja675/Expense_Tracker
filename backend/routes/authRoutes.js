@@ -25,6 +25,7 @@ router.post("/upload-image", upload.single("image"), (req, res) => {
     req.file.filename
   }`;
 
+
   res.status(200).json({ imageUrl });
 });
 
