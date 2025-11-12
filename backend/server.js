@@ -11,6 +11,8 @@ const dotenv = require("dotenv")
 const app = express()
 dotenv.config()
 
+app.set("trust proxy", 1); // ✅ FIX: trust Render’s proxy
+
 app.use(express.json())
 
 app.use(express.json({ limit: "50mb" }));
