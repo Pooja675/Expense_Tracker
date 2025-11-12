@@ -1,9 +1,9 @@
-# Expense Tracker - Financial management app.
+# Expense Tracker - Financial Management App.
 
 <div align="center">
   <img width="800" alt="expense tracker" src="https://github.com/user-attachments/assets/10677732-6e90-4203-a454-34059b6a42d6" />
 
-  <p><em>Full stack responsive chat app using sockets for realtime communication.</em></p>
+  <p><em>Full stack responsive Financial Management Application</em></p>
   
   [![React](https://img.shields.io/badge/React-18.x-blue)](https://reactjs.org/)
   [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-38B2AC)](https://tailwindcss.com/)
